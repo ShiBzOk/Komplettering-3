@@ -10,13 +10,17 @@ function App() {
     setMovies([...movies, newMovie]);
   };
 
+  const handleDeleteMovie = (id) => {
+    setMovies(movies.filter((movie) => movie.id !== id));
+  };
+
   return (
     <div className="container mt-4">
       <h1>Min filmlista</h1>
       <AddMovieForm onAddMovie={handleAddMovie} />
       <hr />
       <h2>Inlagda filmer</h2>
-      <MovieList movies={movies} />
+      <MovieList movies={movies} onDeleteMovie={handleDeleteMovie} />
     </div>
   );
 }

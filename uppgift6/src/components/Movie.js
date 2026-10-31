@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Movie({ movie }) {
+function Movie({ movie, onDeleteMovie }) {
   const stars = [];
   for (let i = 0; i < movie.rating; i++) {
     stars.push(
@@ -19,6 +19,7 @@ function Movie({ movie }) {
         src="images/delete.png"
         alt="Delete movie"
         className="delete-movie-icon"
+        onClick={() => onDeleteMovie(movie.id)}
       />
       {stars}
     </li>
